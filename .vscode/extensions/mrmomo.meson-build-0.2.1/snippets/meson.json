@@ -1,0 +1,42 @@
+{
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "if ${condition}",
+            "$0",
+            "endif"
+        ],
+        "description": "if statement"
+    },
+    "If else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "if ${condition}",
+            "$1",
+            "else",
+            "$2",
+            "endif"
+        ],
+        "description": "if else statement"
+    },
+    "Else if Statement": {
+        "prefix": "elif",
+        "body": [
+            "if ${condition}",
+            "$1",
+            "elif ${second condition}",
+            "$2",
+            "endif"
+        ],
+        "description": "else if statement"
+    },
+    "For each": {
+        "prefix": "foreach",
+        "body": [
+            "foreach $1 : $2",
+            "$0",
+            "endforeach"
+        ],
+        "description" : "foreach loop"
+    }
+}

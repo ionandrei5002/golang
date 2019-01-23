@@ -1,0 +1,145 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Meson build",
+	"patterns": [
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#keywords-control-if"
+		},
+		{
+			"include": "#keywords-control-foreach"
+		},
+		{
+			"include": "#keywords-operator-logical"
+		},
+		{
+			"include": "#keywords-reserved-functions"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#string-block"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comment-line"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#function-named-parameters"
+		},
+		{
+			"include": "#variable"
+		}
+	],
+	"repository": {
+		"keywords-control-if": {
+			"patterns": [
+				{
+					"name": "keyword.control.meson",
+					"match": "\\b(if|elif|else|endif)\\b"
+				}
+			]
+		},
+		"keywords-control-foreach": {
+			"patterns": [
+				{
+					"name": "keyword.control.meson",
+					"match": "\\b(foreach|endforeach)\\b"
+				}
+			]
+		},
+		"keywords-operator-logical": {
+			"patterns": [
+				{
+					"name": "keyword.operator.new.meson",
+					"match": "\\b(and|or|not|true|false)\\b"
+				}
+			]
+		},
+		"keywords-reserved-functions": {
+			"patterns": [
+				{
+					"name": "keyword.new.meson",
+					"match": "\\b\\s*(add_global_arguments|add_global_link_arguments|add_languages|add_project_arguments|add_project_link_arguments|add_test_setup|benchmark|build_target|configuration_data|configure_file|custom_target|declare_dependency|dependency|error|environment|executable|find_library|find_program|files|generator|get_option|get_variable|import|include_directories|install_data|install_headers|install_man|install_subdir|is_variable|jar|join_paths|library|message|project|run_command|run_target|set_variable|shared_library|shared_module|static_library|subdir|subproject|test|vcs_tag)(?=\\s*\\()"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.meson",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.meson",
+					"match": "\\\\."
+				}
+			]
+		},
+		"string-block": {
+			"name": "string.quoted.triple.meson",
+			"begin": "'''",
+			"end": "'''",
+			"patterns": [
+				{
+					"name": "constant.character.escape.meson",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.meson",
+					"match": "\\b[0-9]+\\b"
+				}
+			]
+		},
+		"comment-line": {
+			"name": "comment.meson",
+			"begin": "#",
+			"end": "\n",
+			"patterns": []
+		},
+		"function": {
+			"patterns": [
+				{
+					"name": "support.function.meson",
+					"match": "\\s*\\w+(?=\\s*\\()"
+				}
+			]
+		},
+		"function-named-parameters": {
+			"patterns": [
+				{
+					"name": "variable.parameter",
+					"match": "\\w+\\s*(?=\\:)"
+				}
+			]
+		},
+		"variable": {
+			"patterns": [
+				{
+					"name": "support.variable.meson",
+					"match": "\\s*\\w+(?=\\s*\\=)"
+				}
+			]
+		},
+		"operator": {
+			"patterns": [
+				{
+					"name": "keyword.operator.meson",
+					"match": "(\\=|\\+|-|\\*|/|%|\\?)"
+				}
+			]
+		}
+	},
+	"scopeName": "meson.build"
+}

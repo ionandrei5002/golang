@@ -1,0 +1,60 @@
+{
+	"name": "meson-build",
+	"displayName": "Meson build.",
+	"description": "Provides meson build support for vscode.",
+	"version": "0.2.1",
+	"publisher": "Mrmomo",
+	"engines": {
+		"vscode": "^1.11.0"
+	},
+	"categories": [
+		"Languages"
+	],
+	"icon": "meson_logo.png",
+	"contributes": {
+		"languages": [
+			{
+				"id": "meson",
+				"aliases": [
+					"Meson build",
+					"meson"
+				],
+				"extensions": [
+					"meson.build"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "meson",
+				"scopeName": "meson.build",
+				"path": "./syntaxes/meson.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "meson",
+				"path": "./snippets/meson.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"__metadata": {
+		"id": "f47db379-f7ee-45fa-893e-2ea6ef4cf99f",
+		"publisherId": "01b36570-a46f-4c0d-bc7a-8b36b6142112",
+		"publisherDisplayName": "Mrmomo"
+	}
+}
